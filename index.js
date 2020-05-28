@@ -1,2 +1,1 @@
-import Swiper from './Swiper'
-export default Swiper
+export { default } from './Swiper';

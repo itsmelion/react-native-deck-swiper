@@ -1,67 +1,69 @@
-import React, { Component } from 'react'
-import Swiper from 'react-native-deck-swiper'
-import { Button, StyleSheet, Text, View } from 'react-native'
+import React, { Component } from 'react';
+import Swiper from 'react-native-deck-swiper';
+import {
+  Button, StyleSheet, Text, View,
+} from 'react-native';
 
 // demo purposes only
-function * range (start, end) {
+function* range(start, end) {
   for (let i = start; i <= end; i++) {
-    yield i
+    yield i;
   }
 }
 
 export default class Exemple extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      cards: [...range(1, 50)],
-      swipedAllCards: false,
-      swipeDirection: '',
-      cardIndex: 0
-    }
-  }
-
-  renderCard = (card, index) => {
-    return (
-      <View style={styles.card}>
-        <Text style={styles.text}>{card} - {index}</Text>
-      </View>
-    )
+  state = {
+    cards: [...range(1, 50)],
+    swipedAllCards: false,
+    swipeDirection: '',
+    cardIndex: 0,
   };
 
+  renderCard = (card, index) => (
+    <View style={styles.card}>
+      <Text style={styles.text}>
+        {card}
+        {' '}
+        -
+        {' '}
+        {index}
+      </Text>
+    </View>
+  );
+
   onSwiped = (type) => {
-    console.log(`on swiped ${type}`)
+    console.log(`on swiped ${type}`);
   }
 
   onSwipedAllCards = () => {
     this.setState({
-      swipedAllCards: true
-    })
+      swipedAllCards: true,
+    });
   };
 
   swipeLeft = () => {
-    this.swiper.swipeLeft()
+    this.swiper.swipeLeft();
   };
 
-  render () {
+  render() {
     return (
       <View style={styles.container}>
         <Swiper
           ref={swiper => {
-            this.swiper = swiper
+            this.swiper = swiper;
           }}
+          animateCardOpacity
+          animateOverlayLabelsOpacity
+          cardIndex={this.state.cardIndex}
+          cards={this.state.cards}
+          cardVerticalMargin={80}
           onSwiped={() => this.onSwiped('general')}
+          onSwipedAll={this.onSwipedAllCards}
+          onSwipedBottom={() => this.onSwiped('bottom')}
           onSwipedLeft={() => this.onSwiped('left')}
           onSwipedRight={() => this.onSwiped('right')}
           onSwipedTop={() => this.onSwiped('top')}
-          onSwipedBottom={() => this.onSwiped('bottom')}
           onTapCard={this.swipeLeft}
-          cards={this.state.cards}
-          cardIndex={this.state.cardIndex}
-          cardVerticalMargin={80}
-          renderCard={this.renderCard}
-          onSwipedAll={this.onSwipedAllCards}
-          stackSize={3}
-          stackSeparation={15}
           overlayLabels={{
             bottom: {
               title: 'BLEAH',
@@ -70,14 +72,14 @@ export default class Exemple extends Component {
                   backgroundColor: 'black',
                   borderColor: 'black',
                   color: 'white',
-                  borderWidth: 1
+                  borderWidth: 1,
                 },
                 wrapper: {
                   flexDirection: 'column',
                   alignItems: 'center',
-                  justifyContent: 'center'
-                }
-              }
+                  justifyContent: 'center',
+                },
+              },
             },
             left: {
               title: 'NOPE',
@@ -86,16 +88,16 @@ export default class Exemple extends Component {
                   backgroundColor: 'black',
                   borderColor: 'black',
                   color: 'white',
-                  borderWidth: 1
+                  borderWidth: 1,
                 },
                 wrapper: {
                   flexDirection: 'column',
                   alignItems: 'flex-end',
                   justifyContent: 'flex-start',
                   marginTop: 30,
-                  marginLeft: -30
-                }
-              }
+                  marginLeft: -30,
+                },
+              },
             },
             right: {
               title: 'LIKE',
@@ -104,16 +106,16 @@ export default class Exemple extends Component {
                   backgroundColor: 'black',
                   borderColor: 'black',
                   color: 'white',
-                  borderWidth: 1
+                  borderWidth: 1,
                 },
                 wrapper: {
                   flexDirection: 'column',
                   alignItems: 'flex-start',
                   justifyContent: 'flex-start',
                   marginTop: 30,
-                  marginLeft: 30
-                }
-              }
+                  marginLeft: 30,
+                },
+              },
             },
             top: {
               title: 'SUPER LIKE',
@@ -122,31 +124,31 @@ export default class Exemple extends Component {
                   backgroundColor: 'black',
                   borderColor: 'black',
                   color: 'white',
-                  borderWidth: 1
+                  borderWidth: 1,
                 },
                 wrapper: {
                   flexDirection: 'column',
                   alignItems: 'center',
-                  justifyContent: 'center'
-                }
-              }
-            }
+                  justifyContent: 'center',
+                },
+              },
+            },
           }}
-          animateOverlayLabelsOpacity
-          animateCardOpacity
-          swipeBackCard
-        >
-          <Button onPress={() => this.swiper.swipeBack()} title='Swipe Back' />
+          renderCard={this.renderCard}
+          stackSeparation={15}
+          stackSize={3}
+          swipeBackCard>
+          <Button onPress={() => this.swiper.swipeBack()} title="Swipe Back" />
         </Swiper>
       </View>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF'
+    backgroundColor: '#F5FCFF',
   },
   card: {
     flex: 1,
@@ -154,17 +156,17 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: '#E8E8E8',
     justifyContent: 'center',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   text: {
     textAlign: 'center',
     fontSize: 50,
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
   },
   done: {
     textAlign: 'center',
     fontSize: 30,
     color: 'white',
-    backgroundColor: 'transparent'
-  }
-})
+    backgroundColor: 'transparent',
+  },
+});
