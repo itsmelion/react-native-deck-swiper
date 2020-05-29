@@ -9,10 +9,10 @@ import {
   Dimensions,
   Animated,
 } from 'react-native';
-import PropTypes from 'prop-types';
 import isEqual from 'lodash/isEqual';
 
 import styles from './styles';
+import { propTypes, defaultProps } from './Swiper.propTypes';
 
 const LABEL_TYPES = {
   NONE: 'none',
@@ -221,7 +221,7 @@ class Swiper extends Component {
     )(event, gestureState);
   }
 
-  onPanResponderGrant = (event, gestureState) => {
+  onPanResponderGrant = () => {
     const { dragStart } = this.props;
     const { panResponderLocked, pan } = this.state;
 
@@ -263,7 +263,7 @@ class Swiper extends Component {
     );
   }
 
-  onPanResponderRelease = (e, gestureState) => {
+  onPanResponderRelease = () => {
     const {
       dragEnd,
       horizontalThreshold,
@@ -982,189 +982,8 @@ class Swiper extends Component {
   }
 }
 
-Swiper.propTypes = {
-  animateCardOpacity: PropTypes.bool,
-  animateOverlayLabelsOpacity: PropTypes.bool,
-  backgroundColor: PropTypes.string,
-  cardHorizontalMargin: PropTypes.number,
-  cardIndex: PropTypes.number,
-  cardStyle: PropTypes.oneOfType([PropTypes.number, PropTypes.object]),
-  cardVerticalMargin: PropTypes.number,
-  cards: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
-  containerStyle: PropTypes.object,
-  children: PropTypes.any,
-  childrenOnTop: PropTypes.bool,
-  dragEnd: PropTypes.func,
-  dragStart: PropTypes.func,
-  disableBottomSwipe: PropTypes.bool,
-  disableLeftSwipe: PropTypes.bool,
-  disableRightSwipe: PropTypes.bool,
-  disableTopSwipe: PropTypes.bool,
-  goBackToPreviousCardOnSwipeBottom: PropTypes.bool,
-  goBackToPreviousCardOnSwipeLeft: PropTypes.bool,
-  goBackToPreviousCardOnSwipeRight: PropTypes.bool,
-  goBackToPreviousCardOnSwipeTop: PropTypes.bool,
-  horizontalSwipe: PropTypes.bool,
-  horizontalThreshold: PropTypes.number,
-  infinite: PropTypes.bool,
-  inputCardOpacityRangeX: PropTypes.array,
-  inputCardOpacityRangeY: PropTypes.array,
-  inputOverlayLabelsOpacityRangeX: PropTypes.array,
-  inputOverlayLabelsOpacityRangeY: PropTypes.array,
-  inputCardOpacityRange: PropTypes.array,
-  inputRotationRange: PropTypes.array,
-  keyExtractor: PropTypes.func,
-  marginBottom: PropTypes.number,
-  marginTop: PropTypes.number,
-  onSwiped: PropTypes.func,
-  onSwipedAborted: PropTypes.func,
-  onSwipedAll: PropTypes.func,
-  onSwipedBottom: PropTypes.func,
-  onSwipedLeft: PropTypes.func,
-  onSwipedRight: PropTypes.func,
-  onSwipedTop: PropTypes.func,
-  onSwiping: PropTypes.func,
-  onTapCard: PropTypes.func,
-  onTapCardDeadZone: PropTypes.number,
-  outputCardOpacityRangeX: PropTypes.array,
-  outputCardOpacityRangeY: PropTypes.array,
-  outputOverlayLabelsOpacityRangeX: PropTypes.array,
-  outputOverlayLabelsOpacityRangeY: PropTypes.array,
-  outputRotationRange: PropTypes.array,
-  outputCardOpacityRange: PropTypes.array,
-  overlayLabels: PropTypes.object,
-  overlayLabelStyle: PropTypes.object,
-  overlayLabelWrapperStyle: PropTypes.object,
-  overlayOpacityHorizontalThreshold: PropTypes.number,
-  overlayOpacityVerticalThreshold: PropTypes.number,
-  pointerEvents: PropTypes.oneOf(['box-none', 'none', 'box-only', 'auto']),
-  previousCardDefaultPositionX: PropTypes.number,
-  previousCardDefaultPositionY: PropTypes.number,
-  renderCard: PropTypes.func.isRequired,
-  secondCardZoom: PropTypes.number,
-  showSecondCard: PropTypes.bool,
-  stackAnimationFriction: PropTypes.number,
-  stackAnimationTension: PropTypes.number,
-  stackScale: PropTypes.number,
-  stackSeparation: PropTypes.number,
-  stackSize: PropTypes.number,
-  swipeAnimationDuration: PropTypes.number,
-  swipeBackCard: PropTypes.bool,
-  topCardResetAnimationFriction: PropTypes.number,
-  topCardResetAnimationTension: PropTypes.number,
-  verticalSwipe: PropTypes.bool,
-  verticalThreshold: PropTypes.number,
-  zoomAnimationDuration: PropTypes.number,
-  zoomFriction: PropTypes.number,
-};
+Swiper.propTypes = propTypes;
 
-Swiper.defaultProps = {
-  animateCardOpacity: false,
-  animateOverlayLabelsOpacity: false,
-  backgroundColor: 'transparent',
-  cardHorizontalMargin: 20,
-  cardIndex: 0,
-  cardStyle: {},
-  cardVerticalMargin: 60,
-  childrenOnTop: false,
-  containerStyle: {},
-  disableBottomSwipe: false,
-  disableLeftSwipe: false,
-  disableRightSwipe: false,
-  disableTopSwipe: false,
-  horizontalSwipe: true,
-  horizontalThreshold: Dimensions.get('window').width / 4,
-  goBackToPreviousCardOnSwipeBottom: false,
-  goBackToPreviousCardOnSwipeLeft: false,
-  goBackToPreviousCardOnSwipeRight: false,
-  goBackToPreviousCardOnSwipeTop: false,
-  infinite: false,
-  inputCardOpacityRangeX: [
-    -Dimensions.get('window').width / 2,
-    -Dimensions.get('window').width / 3, 0,
-    Dimensions.get('window').width / 3,
-    Dimensions.get('window').width / 2,
-  ],
-  inputCardOpacityRangeY: [
-    -Dimensions.get('window').height / 2,
-    -Dimensions.get('window').height / 3,
-    0,
-    Dimensions.get('window').height / 3,
-    Dimensions.get('window').height / 2,
-  ],
-  inputOverlayLabelsOpacityRangeX: [
-    -Dimensions.get('window').width / 3,
-    -Dimensions.get('window').width / 4,
-    0,
-    Dimensions.get('window').width / 4,
-    Dimensions.get('window').width / 3,
-  ],
-  inputOverlayLabelsOpacityRangeY: [
-    -Dimensions.get('window').height / 4,
-    -Dimensions.get('window').height / 5,
-    0,
-    Dimensions.get('window').height / 5,
-    Dimensions.get('window').height / 4,
-  ],
-  inputRotationRange: [
-    -Dimensions.get('window').width / 2,
-    0,
-    Dimensions.get('window').width / 2,
-  ],
-  keyExtractor: null,
-  marginBottom: 0,
-  marginTop: 0,
-  onSwiped: cardIndex => { },
-  onSwipedAborted: () => { },
-  onSwipedAll: () => { },
-  onSwipedBottom: cardIndex => { },
-  onSwipedLeft: cardIndex => { },
-  onSwipedRight: cardIndex => { },
-  onSwipedTop: cardIndex => { },
-  onSwiping: () => { },
-  onTapCard: (cardIndex) => { },
-  onTapCardDeadZone: 5,
-  outputCardOpacityRangeX: [0.8, 1, 1, 1, 0.8],
-  outputCardOpacityRangeY: [0.8, 1, 1, 1, 0.8],
-  outputOverlayLabelsOpacityRangeX: [1, 0, 0, 0, 1],
-  outputOverlayLabelsOpacityRangeY: [1, 0, 0, 0, 1],
-  outputRotationRange: ['-10deg', '0deg', '10deg'],
-  overlayLabels: null,
-  overlayLabelStyle: {
-    fontSize: 45,
-    fontWeight: 'bold',
-    borderRadius: 10,
-    padding: 10,
-    overflow: 'hidden',
-  },
-  overlayLabelWrapperStyle: {
-    position: 'absolute',
-    backgroundColor: 'transparent',
-    zIndex: 2,
-    flex: 1,
-    width: '100%',
-    height: '100%',
-  },
-  overlayOpacityHorizontalThreshold: Dimensions.get('window').width / 4,
-  overlayOpacityVerticalThreshold: Dimensions.get('window').height / 5,
-  pointerEvents: 'auto',
-  previousCardDefaultPositionX: -Dimensions.get('window').width,
-  previousCardDefaultPositionY: -Dimensions.get('window').height,
-  secondCardZoom: 0.97,
-  showSecondCard: true,
-  stackAnimationFriction: 7,
-  stackAnimationTension: 40,
-  stackScale: 3,
-  stackSeparation: 10,
-  stackSize: 1,
-  swipeAnimationDuration: 350,
-  swipeBackCard: false,
-  topCardResetAnimationFriction: 7,
-  topCardResetAnimationTension: 40,
-  verticalSwipe: true,
-  verticalThreshold: Dimensions.get('window').height / 5,
-  zoomAnimationDuration: 100,
-  zoomFriction: 7,
-};
+Swiper.defaultProps = defaultProps;
 
 export default Swiper;
