@@ -811,7 +811,7 @@ class Swiper extends Component {
 
   interpolateRotation = () => {
     const { pan } = this.state;
-    const { inputRotationRange, outputRotationRange } = this.state;
+    const { inputRotationRange, outputRotationRange } = this.props;
 
     return pan.x.interpolate({
       inputRange: inputRotationRange,
