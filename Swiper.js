@@ -67,9 +67,12 @@ class Swiper extends Component {
     this._mounted = true;
     this._animatedValueX = 0;
     this._animatedValueY = 0;
+  }
 
-    this.state.pan.x.addListener(value => (this._animatedValueX = value.value));
-    this.state.pan.y.addListener(value => (this._animatedValueY = value.value));
+  componentDidMount() {
+    const { pan } = this.state;
+    pan.x.addListener(({ value }) => { this._animatedValueX = value; });
+    pan.y.addListener(({ value }) => { this._animatedValueY = value; });
 
     this.initializeCardStyle();
     this.initializePanResponder();
