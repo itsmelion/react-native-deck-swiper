@@ -828,9 +828,7 @@ class Swiper extends Component {
       ? stackSize * -1
       : 1;
 
-    if (childrenOnTop) {
-      zIndex = 5;
-    }
+    if (childrenOnTop) zIndex = 5;
 
     return (
       <View pointerEvents="box-none" style={[styles.childrenViewStyle, { zIndex }]}>
@@ -851,6 +849,7 @@ class Swiper extends Component {
 
   pushCardToStack = (renderedCards, index, position, key, firstCard) => {
     const { cards, renderCard } = this.props;
+    const { pan } = this.state;
 
     const stackCardZoomStyle = this.calculateStackCardZoomStyle(position);
     const StackCard = renderCard;
@@ -865,10 +864,7 @@ class Swiper extends Component {
           key={key}
           card={cards[index]}
           index={index}
-          pan={{
-            x: this._animatedValueX,
-            y: this._animatedValueY,
-          }}
+          pan={pan}
         />
       </Animated.View>,
     );
