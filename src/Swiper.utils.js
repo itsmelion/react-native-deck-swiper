@@ -17,15 +17,14 @@ export const calculateCardIndexes = (firstCardIndex = 0, cards) => {
 };
 
 export const rebuildStackAnimatedValues = (props) => {
-  const { stackSize, stackSeparation, stackScale } = props;
+  const { stackSize, stackSeparation } = props;
   const stackPositionsAndScales = {};
 
   for (let position = 0; position < stackSize; position += 1) {
     stackPositionsAndScales[`stackPosition${position}`] = new Animated
       .Value(stackSeparation * position);
 
-    stackPositionsAndScales[`stackScale${position}`] = new Animated
-      .Value((100 - stackScale * position) * 0.01);
+    stackPositionsAndScales[`stackScale${position}`] = new Animated.Value(1);
   }
 
   return stackPositionsAndScales;
