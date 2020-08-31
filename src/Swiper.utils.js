@@ -1,13 +1,5 @@
 import { Animated } from 'react-native';
 
-export const LABEL_TYPES = {
-  NONE: 'none',
-  LEFT: 'left',
-  RIGHT: 'right',
-  TOP: 'top',
-  BOTTOM: 'bottom',
-};
-
 export const SWIPE_MULTIPLY_FACTOR = 4.5;
 
 export const calculateCardIndexes = (firstCardIndex = 0, cards) => {
