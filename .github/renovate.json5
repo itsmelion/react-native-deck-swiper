@@ -2,7 +2,7 @@
   "extends": [
     "config:base"
   ],
-  // "baseBranches": ["development"],
+  "baseBranches": ["development", "basic-swiper"],
   // "commitMessageSuffix": "[skip netlify]",
   // "commitBody": "[skip ci]",
   "assignees": ["itsmelion"],
