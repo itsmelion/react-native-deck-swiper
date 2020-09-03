@@ -1,0 +1,16 @@
+name: Lint
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: ESLint
+      uses: hallee/eslint-action@1.0.3
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
