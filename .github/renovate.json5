@@ -5,6 +5,7 @@
   "baseBranches": ["development", "basic-swiper"],
   // "commitMessageSuffix": "[skip netlify]",
   // "commitBody": "[skip ci]",
+  "requiredStatusChecks": null,
   "assignees": ["itsmelion"],
   "reviewers": ["itsmelion"],
   "lockFileMaintenance": {
