@@ -1,5 +1,4 @@
 /* eslint-disable no-plusplus, no-underscore-dangle */
-
 import React, { Component } from 'react';
 import {
   PanResponder,
@@ -600,6 +599,7 @@ class Swiper extends Component {
         { translateX: pan.x },
         { translateY: pan.y },
         { rotate: rotation },
+        { perspective: 1000 }, // without this line this Animation will not render on Android while working fine on iOS
       ],
     };
   }
