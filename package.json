@@ -6,10 +6,6 @@
   "scripts": {
     "lint": "eslint --fix src"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/itsmelion/react-native-deck-swiper.git"
-  },
   "keywords": [
     "react-native",
     "react-native-component",
@@ -47,5 +43,6 @@
     "extends": [
       "lion/react-native"
     ]
-  }
+  },
+  "repository": "https://github.com/itsmelion/react-native-deck-swiper.git"
 }
