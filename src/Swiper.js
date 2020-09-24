@@ -69,8 +69,6 @@ class Swiper extends Component {
     const { pan } = this.state;
     pan.x.addListener(({ value }) => { this._animatedValueX = value; });
     pan.y.addListener(({ value }) => { this._animatedValueY = value; });
-
-    Dimensions.addEventListener('change', this.onDimensionsChange);
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
@@ -96,11 +94,6 @@ class Swiper extends Component {
     this._mounted = false;
     pan.x.removeAllListeners();
     pan.y.removeAllListeners();
-    Dimensions.removeEventListener('change', this.onDimensionsChange);
-  }
-
-  onDimensionsChange() {
-    this.forceUpdate();
   }
 
   createAnimatedEvent = () => {
