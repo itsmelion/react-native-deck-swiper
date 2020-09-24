@@ -2,7 +2,7 @@
   "extends": [
     "config:base"
   ],
-  "baseBranches": ["development", "basic-swiper"],
+  "baseBranches": ["master", "main", "basic-swiper"],
   // "commitMessageSuffix": "[skip netlify]",
   // "commitBody": "[skip ci]",
   "requiredStatusChecks": null,
@@ -22,6 +22,10 @@
     //   ],
     //   "rangeStrategy": "pin"
     // },
+    {
+      "packageNames": ["typescript"],
+      "rangeStrategy": "auto"
+    },
     {
       "depTypeList": [
         "dependencies",
