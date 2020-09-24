@@ -1,11 +1,11 @@
 /* eslint-disable no-plusplus, no-underscore-dangle */
+import _ from 'lodash';
 import React, { Component } from 'react';
 import {
   PanResponder,
   Dimensions,
   Animated,
 } from 'react-native';
-import _ from 'lodash';
 
 import { Card, Container } from './styles';
 import { propTypes, defaultProps } from './Swiper.propTypes';
