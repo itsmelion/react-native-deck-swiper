@@ -32,10 +32,10 @@
     "react-native": ">=0.60.0"
   },
   "devDependencies": {
-    "babel-eslint": "10.1.0",
-    "eslint": "7.12.0",
-    "eslint-config-lion": "2.0.0-beta10",
-    "react": "16.13.1",
+    "babel-eslint": "*",
+    "eslint": "*",
+    "eslint-config-lion": "*",
+    "react": "*",
     "react-native": "*",
     "typescript": "*"
   },
