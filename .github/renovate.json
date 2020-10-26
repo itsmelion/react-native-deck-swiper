@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "github>itsmelion/settings"
+  ],
+  "baseBranches": ["master", "main", "basic-swiper"]
+}
