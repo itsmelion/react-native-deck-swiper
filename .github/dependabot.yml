@@ -11,12 +11,12 @@ updates:
     reviewers:
       - itsmelion
     assignees:
-      - itmelion
+      - itsmelion
     schedule:
       interval: weekly
       day: sunday
-    # commit-message:
-    #   prefix: '[skip netlify]'
+    ignore:
+      - dependency-name: "typescript"
 
 
   # Maintain dependencies for GitHub Actions
@@ -25,7 +25,7 @@ updates:
     reviewers:
       - itsmelion
     assignees:
-      - itmelion
+      - itsmelion
     schedule:
       interval: weekly
       day: sunday

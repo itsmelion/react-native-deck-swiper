@@ -2,5 +2,13 @@
   "extends": [
     "github>itsmelion/settings"
   ],
-  "baseBranches": ["master", "main", "basic-swiper"]
+  "commitBody": "",
+  "commitMessageSuffix": "",
+  "baseBranches": ["master", "main", "basic-swiper"],
+  "packageRules": [
+    {
+      "packageNames": ["react", "react-dom"],
+      "allowedVersions": "<17"
+    }
+  ]
 }
