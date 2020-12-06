@@ -57,7 +57,7 @@
         "lodash": "^4.17.5",
         "prettier-eslint": "^6.4.2",
         "prettier-eslint-cli": "^4.1.1",
-        "react-test-renderer": "15.4.2"
+        "react-test-renderer": "17.0.1"
     },
     "jest": {
         "preset": "react-native"
