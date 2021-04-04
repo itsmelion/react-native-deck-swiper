@@ -25,7 +25,7 @@
   "homepage": "https://github.com/itsmelion/react-native-deck-swiper#readme",
   "dependencies": {
     "lodash": "4.17.21",
-    "styled-components": "5.2.1"
+    "styled-components": "5.2.3"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
