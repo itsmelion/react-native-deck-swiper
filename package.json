@@ -34,7 +34,7 @@
   "devDependencies": {
     "babel-eslint": "*",
     "eslint": "*",
-    "eslint-config-lion": "2.1.2",
+    "eslint-config-lion": "2.1.3",
     "react": "*",
     "react-native": "*",
     "typescript": "*"
